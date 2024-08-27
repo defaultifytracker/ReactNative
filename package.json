@@ -40,13 +40,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://gitlab.appinvent.in/defaultify/react_native",
-  "author": "Gaurav Bhandari <gaurav.bhandari@appinventiv.com> (https://gitlab.appinvent.in/gaurav_bhandari)",
+  "repository": "https://github.com/defaultifytracker/ReactNativeDevelopment",
+  "author": "Defaultify (https://github.com/defaultifytracker/ReactNativeDevelopmenti)",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.appinvent.in/defaultify/react_native/issues"
+    "url": "https://github.com/defaultifytracker/ReactNativeDevelopment/issues"
   },
-  "homepage": "https://gitlab.appinvent.in/defaultify/react_native#readme",
+  "homepage": "https://github.com/defaultifytracker/ReactNativeDevelopment#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

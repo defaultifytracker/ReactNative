@@ -1,0 +1,11 @@
+framework module BMRTSDK {
+  umbrella header "BMRTSDK.h"
+  export *
+
+  module * { export * }
+}
+
+module BMRTSDK.Swift {
+  header "BMRTSDK-Swift.h"
+  requires objc
+}

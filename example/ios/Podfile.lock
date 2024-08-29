@@ -723,7 +723,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 275d9f80210f15f0af9a4b7fd5683fab9738e28e
   React-logger: 8da4802de77a0eb62512396ad6bb1769904c2f0e
   react-native-config: 8f7283449bbb048902f4e764affbbf24504454af
-  react-native-defaultify: a7d8e0c1451dae3f0fac0a58733369a7f53ccf01
+  react-native-defaultify: 2c628eab933d6ff0f48f3082ec1e8726f534c8c3
   react-native-safe-area-context: ab8f4a3d8180913bd78ae75dd599c94cce3d5e9a
   React-NativeModulesApple: 3107f777453f953906d9ba9dc5f8cbd91a6ef913
   React-perflogger: daabc494c6328efc1784a4b49b8b74fca305d11c

@@ -1,8 +1,14 @@
+import BMRTSDK
+
 @objc(Defaultify)
 class Defaultify: NSObject {
-
-  @objc(multiply:withB:withResolver:withRejecter:)
-  func multiply(a: Float, b: Float, resolve:RCTPromiseResolveBlock,reject:RCTPromiseRejectBlock) -> Void {
-    resolve(a*b)
+  @objc
+  func launchDefaultify(_ token: String){
+      if #available(iOS 13.0, *) {
+          print("I'm here");
+          BMRT.launch(token: token);
+      } else {
+          // Fallback on earlier versions
+      }
   }
 }

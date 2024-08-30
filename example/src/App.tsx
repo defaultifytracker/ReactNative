@@ -19,7 +19,7 @@ export default function App() {
 
   React.useEffect(() => {
     if (Platform.OS === 'ios' && Config.DEFAULTIFY_KEY_IOS) {
-      launchDefaultify('Config.DEFAULTIFY_KEY_IOS');
+      launchDefaultify(Config.DEFAULTIFY_KEY_IOS);
     } else if (Platform.OS === 'android' && Config.DEFAULTIFY_KEY_ANDROID) {
       launchDefaultify(Config.DEFAULTIFY_KEY_ANDROID);
     }

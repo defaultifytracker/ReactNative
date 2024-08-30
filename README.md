@@ -12,7 +12,11 @@ npm install react-native-defaultify
 
 ```js
 import * as React from 'react';
-import { launchDefaultify, crashInitialise, NetworkLog } from 'react-native-defaultify';
+import {
+  launchDefaultify,
+  crashInitialise,
+  NetworkLog,
+} from 'react-native-defaultify';
 
 // ...
 const navigationRef = React.useRef(); // create ref for navigation

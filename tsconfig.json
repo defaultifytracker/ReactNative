@@ -2,8 +2,9 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-defaultify": ["./src/index"]
+      "react-native-bmrt": ["./src/index"]
     },
+    "noImplicitAny": false,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "esModuleInterop": true,

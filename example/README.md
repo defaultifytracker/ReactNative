@@ -1,79 +1,84 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# react-native-defaultify
 
-# Getting Started
+React Native bridge module for interacting with defaultify
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Installation
 
-## Step 1: Start the Metro Server
-
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
-
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+```sh
+npm install react-native-defaultify
 ```
 
-## Step 2: Start your Application
+## Usage
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+```js
+import * as React from 'react';
+import { launchDefaultify, crashInitialise, NetworkLog } from 'react-native-defaultify';
 
-### For Android
+// ...
+const navigationRef = React.useRef(); // create ref for navigation
 
-```bash
-# using npm
-npm run android
+if (Platform.OS == 'ios') {
+  launchDefaultify('<IOS-APP-TOKEN>');
+} else if (Platform.OS === 'android') {
+  launchDefaultify('<ANDROID-APP-TOKEN>');
+}
 
-# OR using Yarn
-yarn android
+React.useLayoutEffect(() => {
+  NetworkLog();
+}, []);
+
+React.useEffect(() => {
+  crashInitialise(navigationRef); // Pass reference of navigation
+}, []);
+
+return (
+  <NavigationContainer ref={navigationRef}>
+    <Stack.Navigator initialRouteName="screen1">
+      <Stack.Screen name="screen1" component={screen1} />
+      <Stack.Screen name="screen2" component={screen2} />
+    </Stack.Navigator>
+  </NavigationContainer>
+);
 ```
 
-### For iOS
+## Requirements
 
-```bash
-# using npm
-npm run ios
+For android minSdkVersion 24 is required.
 
-# OR using Yarn
-yarn ios
+## Extra Steps for Android
+
+Step 1: Generate Access Token from GitLab
+
+- Go to your GitLab profile.
+- Select "Preferences".
+- Inside Preferences, navigate to "Access Tokens".
+- Create a new token.
+- After creating the token replace the ‘YOUR_ACCESS_TOKEN_HERE’ with your token.
+
+Step 2: Add the following to your android/build.gradle:
+
+```android
+maven {
+    url "https://gitlab.appinvent.in/api/v4/projects/4676/packages/maven"
+    credentials(HttpHeaderCredentials) {
+        name = 'Private-Token'
+        value = 'YOUR_ACCESS_TOKEN_HERE'
+    }
+    authentication {
+        header(HttpHeaderAuthentication)
+    }
+}
+
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## Contributing
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
-## Step 3: Modifying your App
+## License
 
-Now that you have successfully run the app, let's modify it.
+MIT
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+---
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)

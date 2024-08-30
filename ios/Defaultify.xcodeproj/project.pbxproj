@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CEA3AEBA2C80AB650009F04F /* BMRTSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA3AEB92C80AB650009F04F /* BMRTSDK.xcframework */; };
 		F4FF95D7245B92E800C19C63 /* Defaultify.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /* Defaultify.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +25,6 @@
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libDefaultify.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDefaultify.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5891CC2AC0600A0062D /* Defaultify.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defaultify.mm; sourceTree = "<group>"; };
-		CEA3AEB92C80AB650009F04F /* BMRTSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = BMRTSDK.xcframework; sourceTree = "<group>"; };
 		F4FF95D5245B92E700C19C63 /* Defaultify-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Defaultify-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4FF95D6245B92E800C19C63 /* Defaultify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaultify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -36,7 +34,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA3AEBA2C80AB650009F04F /* BMRTSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +51,6 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				CEA3AEB92C80AB650009F04F /* BMRTSDK.xcframework */,
 				F4FF95D6245B92E800C19C63 /* Defaultify.swift */,
 				B3E7B5891CC2AC0600A0062D /* Defaultify.mm */,
 				F4FF95D5245B92E700C19C63 /* Defaultify-Bridging-Header.h */,

@@ -1,4 +1,4 @@
-import BMRTSDK
+import Defaultify
 
 @objc(Defaultify)
 class Defaultify: NSObject {
@@ -6,7 +6,7 @@ class Defaultify: NSObject {
   func defaultifyLaunch(_ token: String){
       if #available(iOS 13.0, *) {
           print("I'm here");
-          BMRT.launch(token: token);
+          DFTFY.launch(token: token);
       } else {
           // Fallback on earlier versions
       }

@@ -10,7 +10,6 @@ Pod::Spec.new do |s|
   s.homepage     = package["homepage"]
   s.license      = package["license"]
   s.authors      = package["author"]
-  # s.vendored_frameworks = 'ios/BMRTSDK.xcframework'
 
   s.platforms    = { :ios => "11.0" }
   s.source       = { :git => "https://github.com/defaultifytracker/ReactNative.git", :tag => "#{s.version}" }

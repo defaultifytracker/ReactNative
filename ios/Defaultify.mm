@@ -2,7 +2,7 @@
 
 @interface RCT_EXTERN_MODULE(Defaultify, NSObject)
 
-RCT_EXTERN_METHOD(launchBmrt:(NSString *)token)
+RCT_EXTERN_METHOD(defaultifyLaunch:(NSString *)token)
 
 + (BOOL)requiresMainQueueSetup
 {

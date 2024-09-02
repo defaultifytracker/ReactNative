@@ -1,6 +1,6 @@
 {
   "name": "react-native-defaultify",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "React Native bridge module for interacting with defaultify",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

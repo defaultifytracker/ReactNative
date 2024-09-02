@@ -20,7 +20,7 @@ allprojects {
       mavenCentral()
       gradlePluginPortal()
       maven {
-        url "https://gitlab.appinvent.in/api/v4/projects/4537/packages/maven"
+        url "https://gitlab.appinvent.in/api/v4/projects/4676/packages/maven"
         credentials(HttpHeaderCredentials) {
           name = 'Private-Token'
           value = 'glpat-3HepPm-jnbA_48H4jgn3'

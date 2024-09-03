@@ -7,7 +7,7 @@ const LoginScreen = ({ navigation }) => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const validateEmail = (email) => {
+  const validateEmail = () => {
     const regex = /\S+@\S+\.\S+/;
     return regex.test(email);
   };
@@ -18,7 +18,7 @@ const LoginScreen = ({ navigation }) => {
 
     let valid = true;
 
-    if (!email || !validateEmail(email)) {
+    if (!email || !validateEmail()) {
       setEmailError('Please enter a valid email.');
       valid = false;
     }

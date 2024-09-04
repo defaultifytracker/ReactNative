@@ -4,7 +4,6 @@
     "paths": {
       "react-native-defaultify": ["./src/index"]
     },
-    "noImplicitAny": false,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "esModuleInterop": true,

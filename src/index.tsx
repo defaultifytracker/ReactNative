@@ -1,6 +1,7 @@
 import { NativeModules, Platform } from 'react-native';
 import XHRInterceptor from 'react-native/Libraries/Network/XHRInterceptor';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import type { logsType } from './types/logs';
 
 const LINKING_ERROR =
   `The package 'react-native-defaultify' doesn't seem to be linked. Make sure: \n\n` +
@@ -27,7 +28,7 @@ export async function crashInitialise(navigationRef: any) {
   getCrashReport();
   const currentRoute = navigationRef.current?.getCurrentRoute();
 
-  const globalErrorHandler = async (error, isFatal) => {
+  const globalErrorHandler = async (error: any, isFatal: unknown) => {
     const stackTrace = error.stack;
     await saveErrorToStorage(error, isFatal, stackTrace);
   };
@@ -42,7 +43,11 @@ export async function crashInitialise(navigationRef: any) {
     }
   });
 
-  const saveErrorToStorage = async (error, _isFatal, stackTrace) => {
+  const saveErrorToStorage = async (
+    error: any,
+    _isFatal: unknown,
+    stackTrace: unknown
+  ) => {
     const errorInfo = {
       errorMessage: error.toString(),
       stackTrace: stackTrace,
@@ -63,8 +68,7 @@ async function getCrashReport() {
     if (error) {
       const errorInfo = JSON.parse(error);
       if (errorInfo) {
-        const reportSent =
-          (await sendCrashReport(JSON.stringify(errorInfo))) || true;
+        const reportSent = await sendCrashReport(JSON.stringify(errorInfo));
         if (reportSent) {
           await AsyncStorage.removeItem('crashReport');
         }
@@ -86,15 +90,31 @@ export async function sendCrashReport(crashData: string): Promise<boolean> {
 }
 
 export async function NetworkLog() {
-  let logs: any = {};
+  let logs: logsType = {
+    requestHeaders: {},
+    requestMethod: {},
+    requestTime: '',
+    requestURL: '',
+    responseHeaders: {},
+    responseStatus: '',
+    response: '',
+    requestPayload: '',
+  };
   XHRInterceptor.enableInterception();
 
-  XHRInterceptor.setSendCallback((...obj) => {
+  XHRInterceptor.setSendCallback((...obj: any) => {
     logs.requestPayload = obj[0];
   });
 
   XHRInterceptor.setResponseCallback(
-    async (_status, _timeout, response, _responseURL, _responseType, obj) => {
+    async (
+      _status: string,
+      _timeout: string,
+      response: string,
+      _responseURL: string,
+      _responseType: string,
+      obj: any
+    ) => {
       const blob = new Blob([response], {
         type: 'application/json',
         lastModified: Date.now(),

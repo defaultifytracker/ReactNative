@@ -380,7 +380,7 @@ PODS:
     - react-native-config/App (= 1.5.3)
   - react-native-config/App (1.5.3):
     - React-Core
-  - react-native-defaultify (0.1.0):
+  - react-native-defaultify (1.0.0):
     - Defaultify
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
@@ -727,7 +727,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 275d9f80210f15f0af9a4b7fd5683fab9738e28e
   React-logger: 8da4802de77a0eb62512396ad6bb1769904c2f0e
   react-native-config: 8f7283449bbb048902f4e764affbbf24504454af
-  react-native-defaultify: c0406ceeeadf4846f0f2a3e990ea49483366bdf7
+  react-native-defaultify: 322c6d3a9d64cfd9b00cd7da4362d1610d797209
   react-native-safe-area-context: ab8f4a3d8180913bd78ae75dd599c94cce3d5e9a
   React-NativeModulesApple: 3107f777453f953906d9ba9dc5f8cbd91a6ef913
   React-perflogger: daabc494c6328efc1784a4b49b8b74fca305d11c

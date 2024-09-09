@@ -2,10 +2,10 @@
 
 buildscript {
     ext {
-        buildToolsVersion = "33.0.0"
+        buildToolsVersion = "34.0.0"
         minSdkVersion = 24
-        compileSdkVersion = 33
-        targetSdkVersion = 33
+        compileSdkVersion = 34
+        targetSdkVersion = 34
 
         // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
         ndkVersion = "23.1.7779620"
@@ -19,16 +19,6 @@ allprojects {
       google()
       mavenCentral()
       gradlePluginPortal()
-      maven {
-        url "https://gitlab.appinvent.in/api/v4/projects/4676/packages/maven"
-        credentials(HttpHeaderCredentials) {
-          name = 'Private-Token'
-          value = 'glpat-3HepPm-jnbA_48H4jgn3'
-        }
-        authentication {
-          header(HttpHeaderAuthentication)
-        }
-      }
     }
   }
     dependencies {

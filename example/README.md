@@ -12,7 +12,11 @@ npm install react-native-defaultify
 
 ```js
 import * as React from 'react';
-import { launchDefaultify, crashInitialise, NetworkLog } from 'react-native-defaultify';
+import {
+  launchDefaultify,
+  crashInitialise,
+  NetworkLog,
+} from 'react-native-defaultify';
 
 // ...
 const navigationRef = React.useRef(); // create ref for navigation
@@ -44,32 +48,6 @@ return (
 ## Requirements
 
 For android minSdkVersion 24 is required.
-
-## Extra Steps for Android
-
-Step 1: Generate Access Token from GitLab
-
-- Go to your GitLab profile.
-- Select "Preferences".
-- Inside Preferences, navigate to "Access Tokens".
-- Create a new token.
-- After creating the token replace the ‘YOUR_ACCESS_TOKEN_HERE’ with your token.
-
-Step 2: Add the following to your android/build.gradle:
-
-```android
-maven {
-    url "https://gitlab.appinvent.in/api/v4/projects/4676/packages/maven"
-    credentials(HttpHeaderCredentials) {
-        name = 'Private-Token'
-        value = 'YOUR_ACCESS_TOKEN_HERE'
-    }
-    authentication {
-        header(HttpHeaderAuthentication)
-    }
-}
-
-```
 
 ## Contributing
 

@@ -147,7 +147,6 @@ export async function NetworkLog() {
       logs.responseHeaders = obj?.responseHeaders;
       logs.responseStatus = obj?.status;
       logs.response = JSON.stringify(await responseData.then((data) => data));
-
       await Defaultify.sendNetworkLog(JSON.stringify(logs));
     }
   );

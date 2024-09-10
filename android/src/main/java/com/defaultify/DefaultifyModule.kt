@@ -23,7 +23,7 @@ import android.content.Intent
 import android.media.projection.MediaProjectionManager
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import com.defaultify.utils.Defaultify
+
 import com.facebook.react.bridge.*
 import com.facebook.react.modules.core.PermissionAwareActivity
 import com.facebook.react.modules.core.PermissionListener
@@ -61,7 +61,7 @@ class DefaultifyModule(reactContext: ReactApplicationContext) :   PermissionList
       ) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
           // Handle the result
-          Defaultify.launch(activity, appToken)
+          Defaultify.launch(activity, token,"ReactNative")
         } else {
           // Handle denied permission scenario
         }
@@ -112,7 +112,7 @@ class DefaultifyModule(reactContext: ReactApplicationContext) :   PermissionList
               try {
                 val permissionsGranted = hasPermissions()
                 if (permissionsGranted) {
-                  Defaultify.launch(activity, appToken)
+                  Defaultify.launch(activity, token,"ReactNative")
                 } else {
                   requestPermissions()
                 }
@@ -131,14 +131,16 @@ class DefaultifyModule(reactContext: ReactApplicationContext) :   PermissionList
     }
   }
 
-  @ReactMethod
-  fun sendNetworkLog(networkData: String) {
-    try {
-      currentActivity?.let { Defaultify.logNetwork(networkData, it) }
-    } catch (e: Exception) {
-      // Exception block for error handling
-    }
+@ReactMethod
+fun sendNetworkLog(networkData: String) {
+  try {
+    val activity = currentActivity
+    Defaultify.logNetwork(networkData,activity!!)
+  } catch (e: Exception) {
+    Log.d("TAG", "sendNetworkLog: "+e.message)
+    // Exception block for error handling
   }
+}
   private fun hasPermissions(): Boolean {
     val permissionsGranted = (ContextCompat.checkSelfPermission(
       currentActivity!!.applicationContext!!, Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -173,7 +175,9 @@ class DefaultifyModule(reactContext: ReactApplicationContext) :   PermissionList
     if (requestCode == PERMISSION_REQUEST_CODE) {
       val allPermissionsGranted = grantResults.all { it == PackageManager.PERMISSION_GRANTED }
       if (allPermissionsGranted) {
-        currentActivity?.let { Defaultify.launch(it, token) }
+        currentActivity?.let {
+          Defaultify.launch(it, token,"ReactNative")
+        }
       } else {
         Log.d("DefaultifyKotlinSwiftModule", "Some permissions were denied")
       }

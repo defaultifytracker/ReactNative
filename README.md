@@ -48,6 +48,7 @@ return (
 ## Requirements
 
 For android minSdkVersion 24 is required.
+`@react-native-async-storage/async-storage` package is a dependency.
 
 ## Contributing
 
